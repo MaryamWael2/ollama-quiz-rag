@@ -1,0 +1,14 @@
+langchain
+langchain-community
+langchain-text-splitters
+fastembed
+chromadb
+langchain-ollama
+langchain-chroma
+langchain-classic
+ollama
+numpy
+scikit-learn
+tk
+unstructured
+unstructured[pdf]
