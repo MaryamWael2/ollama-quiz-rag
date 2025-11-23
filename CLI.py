@@ -17,8 +17,8 @@ class QuestionCLI:
         self.files = []
         self.answers = []
         self.questions = []
-        self.question_generator_model = RAG(model_name_qg, 0.8)
-        self.check_answer_model = RAG(model_name_ac, 0.1)
+        self.question_generator_model = RAG(model_name_qg, 0.4)
+        self.check_answer_model = RAG(model_name_ac, 0)
 
     # ---------------- INPUT HANDLING ---------------- #
     def ask_for_files(self):
@@ -85,7 +85,7 @@ class QuestionCLI:
         print("\nChecking answers... please wait...\n")
         responses = check_answers(self.check_answer_model, self.questions, self.answers)
 
-        correct_count = sum(1 for r in responses if "correct" in r.lower())
+        correct_count = sum(1 for r in responses if "CORRECT" in r)
         total = len(responses)
 
         print("\n=== RESULTS ===")
