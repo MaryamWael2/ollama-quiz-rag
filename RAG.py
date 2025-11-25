@@ -82,10 +82,15 @@ class RAG:
         document_chain = create_stuff_documents_chain(self.model, prompt)
         chain = create_retrieval_chain(self.retriever_qg, document_chain)
 
-        result = chain.invoke({"input": f"Generate ONLY {number_of_questions} {difficulty} questions. After generating EXACTLY {number_of_questions} questions, STOP. Do not write anything else."})
+        result = chain.invoke({"input": f"Generate ONLY {number_of_questions} {difficulty} questions."})
         
         pattern = r'^\s*\d+[.)]\s+(.*)$'
-        return re.findall(pattern, result["answer"], re.MULTILINE)
+        questions = re.findall(pattern, result["answer"], re.MULTILINE)
+        
+        while len(questions) < number_of_questions:
+            questions = self.get_questions(number_of_questions, difficulty)
+            
+        return questions[:number_of_questions]
         
     def check_answers(self, user_qa):
         prompt = PromptTemplate.from_template(GRADER_SYSTEM_PROMPT)
