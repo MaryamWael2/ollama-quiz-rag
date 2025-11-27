@@ -10,8 +10,6 @@ The project lets you:
 - Generate quiz-style questions based on the retrieved context
 - Experiment interactively via a UI or CLI
 
----
-
 ## Features
 
 The project lets you:
@@ -21,8 +19,6 @@ The project lets you:
 - 🔍 **RAG pipeline** – retrieve relevant chunks from your corpus and pass them to an Ollama model.
 - ❓ **Quiz generation** – generate question/answer pairs from your documents.
 - 💻 **CLI & UI** – use the command-line interface (`CLI.py`) or the UI (`UI.py`).
-
----
 
 ## Project Structure
 
@@ -35,8 +31,6 @@ The project lets you:
 ├── requirements.txt     # Python dependencies
 └── Notebook Example/    # Document + Jupyter notebook example
 ````
-
----
 
 ## Installation
 
@@ -74,7 +68,6 @@ Example:
 ```bash
 ollama pull llama3:8b
 ```
----
 
 ## Usage
 
@@ -85,7 +78,6 @@ The CLI script is in `CLI.py`.
 ```bash
 python CLI.py
 ```
----
 
 ### 2. User Interface
 
